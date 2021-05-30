@@ -11,7 +11,9 @@ const authAxios = axios.create({
 const userAxios = axios.create({
   baseURL: backend_url,
   headers: {
-    Authorization: `Bearer ${localStorage.getItem("company-token")}`,
+    Authorization: `Bearer ${JSON.parse(
+      localStorage.getItem("company-token")
+    )}`,
   },
 });
 

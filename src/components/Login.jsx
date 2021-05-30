@@ -28,6 +28,7 @@ const Login = () => {
     {
       onSuccess: (data) => {
         localStorage.setItem("company-token", JSON.stringify(data));
+        history.push("/");
       },
     }
   );
