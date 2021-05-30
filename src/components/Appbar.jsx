@@ -5,19 +5,19 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 
-const Appbar = () => {
-  const isLoggedIn = localStorage.getItem("company-token");
+const Appbar = ({ loggedIn }) => {
+  const isLoggedIn = loggedIn;
 
   const history = useHistory();
   const classes = useStyles();
 
   const handleLogout = () => {
     localStorage.removeItem("company-token");
-    history.push("/login");
+    window.location.replace("/");
   };
 
   return (

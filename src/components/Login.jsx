@@ -14,7 +14,7 @@ import { useMutation } from "react-query";
 import { Alert } from "@material-ui/lab";
 import { useHistory } from "react-router";
 
-const Login = () => {
+const Login = ({ setLoggedIn }) => {
   const history = useHistory();
 
   const [email, setEmail] = useState("");
@@ -28,6 +28,7 @@ const Login = () => {
     {
       onSuccess: (data) => {
         localStorage.setItem("company-token", JSON.stringify(data));
+        setLoggedIn(true);
         history.push("/");
       },
     }

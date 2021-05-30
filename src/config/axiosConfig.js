@@ -17,4 +17,12 @@ const userAxios = axios.create({
   },
 });
 
-export { authAxios, userAxios };
+const updateAxiosToken = () => {
+  if (localStorage.getItem("company-token")) {
+    userAxios.defaults.headers.Authorization = `Bearer ${JSON.parse(
+      localStorage.getItem("company-token")
+    )}`;
+  }
+};
+
+export { authAxios, userAxios, updateAxiosToken };
